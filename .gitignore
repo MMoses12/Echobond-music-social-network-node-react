@@ -1,0 +1,59 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node modules for both client and server
+Client/node_modules/
+Server/node_modules/
+
+# Dependency directories
+Client/.pnp/
+Client/.pnp.js
+Server/.pnp/
+Server/.pnp.js
+
+# Build files
+build/
+Client/build/
+Server/build/
+
+# Public folders (typically generated assets)
+Client/public/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Lock files
+package-lock.json
+yarn.lock
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Tailwind CSS specific
+Client/tailwind.config.js
+Client/postcss.config.js
+
+# Temporary files
+*.swp
+*.swo
+*~
+
+# Ignore photos or other media assets in the Server folder if unnecessary
+Server/Photos/
+
+# Exclude README files from ignore
+!README.md
+!README.txt

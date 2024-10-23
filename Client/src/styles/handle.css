@@ -1,0 +1,72 @@
+/* Adjusting the thumb for WebKit browsers */
+.slider-thumb::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: -5px; /* Adjust to center the thumb vertically with the track */
+    height: 13px;
+    width: 13px;
+    background: white;
+    cursor: pointer;
+    border-radius: 50%;
+    opacity: 0; /* Make thumb invisible by default */
+}
+
+/* Adjusting the thumb for Firefox */
+.slider-thumb::-moz-range-thumb {
+    background: white;
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    opacity: 0; /* Make thumb invisible by default */
+}
+  
+/* Adjusting the thumb for IE */
+.slider-thumb::-ms-thumb {
+    background: white;
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    opacity: 0; /* Make thumb invisible by default */
+}
+
+/* Make thumb visible on hover for WebKit */
+.slider-thumb:hover::-webkit-slider-thumb {
+    opacity: 1; /* Make thumb visible on hover */
+}
+
+/* Make thumb visible on hover for Firefox */
+.slider-thumb:hover::-moz-range-thumb {
+    opacity: 1; /* Make thumb visible on hover */
+}
+
+/* Make thumb visible on hover for IE */
+.slider-thumb:hover::-ms-thumb {
+    opacity: 1; /* Make thumb visible on hover */
+}
+  
+/* Adjusting the track for WebKit browsers */
+.slider-thumb::-webkit-slider-runnable-track {
+    background: transparent; /* Set the desired color for the entire track */
+    height: 4px;
+    cursor: pointer;
+    border-radius: 1.5px;
+}
+  
+/* Adjusting the track for Firefox */
+.slider-thumb::-moz-range-track {
+    background: transparent; /* Ensure consistent track color */
+    height: 4px;
+    cursor: pointer;
+    border-radius: 1.5px;
+}
+  
+/* Adjusting the track for IE */
+.slider-thumb::-ms-track {
+    background: transparent; /* For IE, you may need to adjust this differently */
+    border-color: transparent;
+    color: transparent;
+    height: 4px;
+    cursor: pointer;
+}

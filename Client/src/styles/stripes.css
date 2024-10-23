@@ -1,0 +1,13 @@
+.bg-stripes {
+    background-image: 
+      linear-gradient(to bottom, transparent, #0f1021),
+      repeating-linear-gradient(
+        90deg,
+        #805AD5,
+        #805AD5 3px,
+        #6B46C1 3px,
+        #6B46C1 6px
+      );
+    background-blend-mode: multiply;
+  }
+  

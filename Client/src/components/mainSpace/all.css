@@ -1,0 +1,22 @@
+
+  /* Add fading effect */
+  .fade-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px; /* Adjust the width of the fade */
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.194), white); /* Linear gradient for fading effect */
+  }
+  
+  .scroll-arrow {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 24px; /* Adjust the size of the arrow */
+    color: #000000; /* Arrow color */
+    cursor: pointer;
+  }
+  
+  

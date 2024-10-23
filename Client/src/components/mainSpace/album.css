@@ -1,0 +1,24 @@
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(purple, #008080); /* Gradient background for the scrollbar thumb */
+  border: px solid #C0C0C0; /* Bright green border for the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(#008080, purple); /* Gradient background for the scrollbar thumb on hover */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #000; /* Black color for the scrollbar track */
+}
+
+hr {
+  border: none; /* Remove default border */
+  height: 1.5px; /* Set the height of the line */
+  background: linear-gradient(to right, #008080, purple); /* Gradient background from silver to purple */
+  margin-left: 16px; /* Adjust margin on the left */
+  margin-right: 16px; /* Adjust margin on the right */
+}
