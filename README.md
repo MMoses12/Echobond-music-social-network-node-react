@@ -46,47 +46,47 @@ Echobond is a music-based social networking application that allows users to sha
 - **MongoDB** (running locally or via MongoDB Atlas)
 
 ### Clone the repository
-\`\`\`bash
+```bash
 git clone https://github.com/MMoses12/Echobond-music-social-network-node-react.git
 cd Echobond-Music-App
-\`\`\`
+```
 
 ### Install Dependencies
 For the **client**:
-\`\`\`bash
+```bash
 cd Client
 npm install
-\`\`\`
+```
 
 For the **server**:
-\`\`\`bash
+```bash
 cd ../Server
 npm install
-\`\`\`
+```
 
 ### Environment Setup
 Make sure to create a `.env` file in the `Server` directory with the following variables:
-\`\`\`bash
+```bash
 MONGO_URI=mongodb://localhost:27017/echobond
 JWT_SECRET=your_jwt_secret
 EMAIL_SERVICE_API_KEY=your_email_service_key
 OTP_SECRET=your_otp_secret_key
-\`\`\`
+```
 
 ### Running the Application
 
 #### For Development
 Run the **client**:
-\`\`\`bash
+```bash
 cd Client
 npm start
-\`\`\`
+```
 
 Run the **server**:
-\`\`\`bash
+```bash
 cd ../Server
 npm run dev
-\`\`\`
+```
 
 The client will run on `http://localhost:3000` and the server on `http://localhost:5000`.
 
