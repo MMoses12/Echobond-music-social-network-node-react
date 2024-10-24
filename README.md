@@ -6,7 +6,7 @@
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
-- [Technology Stack](#tech-stack)
+- [Technology Stack](#technology-stack)
 - [Installation](#installation)
 - [Backend Details](#backend-details)
 - [Usage](#usage)
