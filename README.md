@@ -9,7 +9,6 @@
 - [Tech Stack](#tech-stack)
 - [Installation](#installation)
 - [Backend Details](#backend-details)
-- [Security](#security)
 - [Usage](#usage)
 - [App Photos](#app-photos)
 - [Contributing](#contributing)
