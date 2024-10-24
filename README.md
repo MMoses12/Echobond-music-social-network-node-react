@@ -6,7 +6,7 @@
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
-- [Tech Stack](#tech-stack)
+- [Technology Stack](#tech-stack)
 - [Installation](#installation)
 - [Backend Details](#backend-details)
 - [Usage](#usage)
@@ -26,7 +26,7 @@ Echobond is a music-based social networking application that allows users to sha
 - **Playlist Creation**: Build and share playlists with your followers.
 - **Music Discovery**: Discover trending and new songs shared by other users.
 
-## Tech Stack
+## Technology Stack
 ### Client
 - **React.js**: Frontend framework
 - **Tailwind CSS**: For UI styling
