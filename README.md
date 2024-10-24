@@ -20,7 +20,6 @@ Echobond is a music-based social networking application that allows users to sha
 
 ## Features
 - **User Authentication**: Sign up and login functionality with enhanced security.
-- **Music Sharing**: Share songs, albums, and playlists.
 - **Social Networking**: Follow other users, send friend requests, and connect over similar music tastes.
 - **Real-Time Messaging**: Chat with friends in real-time using WebSocket technology.
 - **Music Playback and Control**: Listen to music, change songs in real-time using socket-based interactions.
