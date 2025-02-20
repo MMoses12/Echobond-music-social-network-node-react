@@ -21,7 +21,7 @@ function FriendsCompAdd (props) {
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
 
         // IP with tailscale.
-        axios.post("http://100.91.43.32:4000/user/confirm-friend", { usernameSec: props.name })
+        axios.post("http://localhost:4000/user/confirm-friend", { usernameSec: props.name })
         .then(response => {     
             props.setFriendChange(!props.friendChange)
         })
@@ -29,14 +29,14 @@ function FriendsCompAdd (props) {
             const refreshToken = localStorage.getItem('refreshToken')
             axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
             
-            axios.get("http://100.91.43.32:4000/token/refresh-token")
+            axios.get("http://localhost:4000/token/refresh-token")
             .then(response => {
                 // Store new access token.
                 localStorage.setItem("accessToken", response.data.accessToken)
                 axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
 
                 // Retry the request.
-                axios.post("http://100.91.43.32:4000/user/confirm-friend", { usernameSec: props.name })
+                axios.post("http://localhost:4000/user/confirm-friend", { usernameSec: props.name })
                 .then(response => {     
                     props.setFriendChange(!props.friendChange)
                 })
@@ -57,7 +57,7 @@ function FriendsCompAdd (props) {
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
 
         // IP with tailscale.
-        axios.post("http://100.91.43.32:4000/user/decline-request", { usernameSec: props.name })
+        axios.post("http://localhost:4000/user/decline-request", { usernameSec: props.name })
         .then(response => {
             props.setFriendChange(!props.friendChange)
         })
@@ -65,14 +65,14 @@ function FriendsCompAdd (props) {
             const refreshToken = localStorage.getItem('refreshToken')
             axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
             
-            axios.get("http://100.91.43.32:4000/token/refresh-token")
+            axios.get("http://localhost:4000/token/refresh-token")
             .then(response => {
                 // Store new access token.
                 localStorage.setItem("accessToken", response.data.accessToken)
                 axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
 
                 // Retry the request.
-                axios.post("http://100.91.43.32:4000/user/decline-request", { usernameSec: props.name })
+                axios.post("http://localhost:4000/user/decline-request", { usernameSec: props.name })
                 .then(response => {        
                     props.setFriendChange(!props.friendChange)
                 })

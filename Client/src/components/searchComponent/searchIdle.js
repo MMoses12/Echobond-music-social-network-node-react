@@ -23,7 +23,7 @@ function SearchIdle (props) {
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
 
         // Fetch albums data when the component mounts
-        axios.get("http://100.91.43.32:4000/user/search-recent")
+        axios.get("http://localhost:4000/user/search-recent")
         .then(response => {
             setAllRecentSongs(response.data.songs); // Assuming the response contains an array of albums
             setAllRecentAlbum(response.data.albums)// Assuming the response contains
@@ -36,13 +36,13 @@ function SearchIdle (props) {
             const refreshToken = localStorage.getItem('refreshToken');
             axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-            axios.get("http://100.91.43.32:4000/token/refresh-token")
+            axios.get("http://localhost:4000/token/refresh-token")
             .then(response => {       
                 localStorage.setItem('accessToken', response.data.accessToken);
                 axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
                 
 
-                axios.get("http://100.91.43.32:4000/user/search-recent")
+                axios.get("http://localhost:4000/user/search-recent")
                 .then(response => {
                     setAllRecentSongs(response.data.songs); // Assuming the response contains an array of albums
                     setAllRecentAlbum(response.data.albums)// Assuming the response contains

@@ -28,7 +28,7 @@ function Favorites(props) {
         // Fetch artists data when the component mounts
 
         //asking for the data from the artists collection from the database
-        axios.get("http://100.91.43.32:4000/user/get-favourite-artists")
+        axios.get("http://localhost:4000/user/get-favourite-artists")
         .then(response=>{
             setfavouriteArtists(response.data);
             setIsLoading(false);
@@ -37,13 +37,13 @@ function Favorites(props) {
             const refreshToken = localStorage.getItem('refreshToken');
             axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-            axios.get("http://100.91.43.32:4000/token/refresh-token")
+            axios.get("http://localhost:4000/token/refresh-token")
             .then(response => {       
                 localStorage.setItem('accessToken', response.data.accessToken);
                 axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
                 
 
-                axios.get("http://100.91.43.32:4000/user/get-favourite-artists")
+                axios.get("http://localhost:4000/user/get-favourite-artists")
                 .then(response=>{
                     setfavouriteArtists(response.data);
                     setIsLoading(false);
@@ -55,7 +55,7 @@ function Favorites(props) {
         })
 
         //asking for the data from the albums collection from the database
-        axios.get("http://100.91.43.32:4000/user/get-favourite-albums")
+        axios.get("http://localhost:4000/user/get-favourite-albums")
         .then(response=>{
             // Set the state with the albums
             setfavouriteAlbums(response.data);
@@ -64,12 +64,12 @@ function Favorites(props) {
             const refreshToken = localStorage.getItem('refreshToken');
             axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-            axios.get("http://100.91.43.32:4000/token/refresh-token")
+            axios.get("http://localhost:4000/token/refresh-token")
             .then(response => {       
                 localStorage.setItem('accessToken', response.data.accessToken);
                 axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
                 
-                axios.get("http://100.91.43.32:4000/user/get-favourite-albums")
+                axios.get("http://localhost:4000/user/get-favourite-albums")
                 .then(response=>{
                     // Set the state with the albums
                     setfavouriteAlbums(response.data);

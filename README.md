@@ -144,11 +144,19 @@ Here are some screenshots of the Echobond Music App:
 ![](ReadmePhotos/HomePage3.png)
 
 
-### Music Player
-![Music Player](ReadmePhotos/music-player-screenshot.png)
+### LogIn
+![LogIn](ReadmePhotos/LoginPage.png)
 
-### Chat with Friends
-![Chat Feature](ReadmePhotos/chat-screenshot.png)
+### Music Player
+![Main Page](ReadmePhotos/MainPage.png)
+
+![Artist Page](ReadmePhotos/ArtistPage.png)
+
+### User Page
+![User Page](ReadmePhotos/UserPage.png)
+
+### Chat
+![Chat Feature](ReadmePhotos/Chat.jpg)
 
 > Make sure to replace `assets/homepage-screenshot.png`, `assets/music-player-screenshot.png`, and `assets/chat-screenshot.png` with the actual paths to your images in the repository.
 

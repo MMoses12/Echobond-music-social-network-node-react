@@ -27,7 +27,7 @@ function Artists(props) {
             const accessToken = localStorage.getItem('accessToken');
             axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
 
-            const response = await axios.get("http://100.91.43.32:4000/artists/get-all-artists")
+            const response = await axios.get("http://localhost:4000/artists/get-all-artists")
             setAllArtists(response.data); //assuming the response contains an array of data
             setIsLoading(false);
         }

@@ -46,7 +46,7 @@ function SignUp () {
         }
 
         // IP with tailscale.
-        axios.post("http://100.91.43.32:4000/otp/send-otp", { username, email, register: true })
+        axios.post("http://localhost:4000/otp/send-otp", { username, email, register: true })
             .then(response => {
                 navigate("/otp", { state: { username, password, email }})
             })

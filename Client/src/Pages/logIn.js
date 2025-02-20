@@ -77,7 +77,7 @@ function Login () {
         setPassword('')
 
         // IP with tailscale.
-        axios.post("http://100.91.43.32:4000/user/login", { username, password })
+        axios.post("http://localhost:4000/user/login", { username, password })
         .then(response => {
             localStorage.setItem('accessToken', response.data.accessToken)
             localStorage.setItem('refreshToken', response.data.refreshToken)
@@ -96,7 +96,7 @@ function Login () {
         }
         
         // IP with tailscale.
-        axios.post("http://100.91.43.32:4000/user/forgot-password", { username })
+        axios.post("http://localhost:4000/user/forgot-password", { username })
         .then(response => {
             notify("New password has been sent to your email!")
         })

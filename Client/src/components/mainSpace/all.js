@@ -29,7 +29,7 @@ function All(props) {
             // Fetch artists data when the component mounts
 
             //asking for the data from the artists collection from the database
-            axios.get("http://100.91.43.32:4000/artists/get-all-artists")
+            axios.get("http://localhost:4000/artists/get-all-artists")
             .then(response=>{
                 const allArtists = response.data;
                 // Shuffle the array
@@ -44,12 +44,12 @@ function All(props) {
                 const refreshToken = localStorage.getItem('refreshToken');
                 axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-                axios.get("http://100.91.43.32:4000/token/refresh-token")
+                axios.get("http://localhost:4000/token/refresh-token")
                 .then(response => {       
                     localStorage.setItem('accessToken', response.data.accessToken);
                     axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
                     
-                axios.get("http://100.91.43.32:4000/artists/get-all-artists")
+                axios.get("http://localhost:4000/artists/get-all-artists")
                 .then(response=>{
                     const allArtists = response.data;
                     // Shuffle the array
@@ -69,7 +69,7 @@ function All(props) {
             axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
 
             //asking for the data from the albums collection from the database
-            axios.get("http://100.91.43.32:4000/albums/get-all-albums")
+            axios.get("http://localhost:4000/albums/get-all-albums")
             .then(response=>{
                 const allAlbums = response.data;
                 // Shuffle the array
@@ -84,12 +84,12 @@ function All(props) {
                 const refreshToken = localStorage.getItem('refreshToken');
                 axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-                axios.get("http://100.91.43.32:4000/token/refresh-token")
+                axios.get("http://localhost:4000/token/refresh-token")
                 .then(response => {       
                     localStorage.setItem('accessToken', response.data.accessToken);
                     axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
                     
-                axios.get("http://100.91.43.32:4000/albums/get-all-albums")
+                axios.get("http://localhost:4000/albums/get-all-albums")
                 .then(response=>{
                     const allAlbums = response.data;
                     // Shuffle the array
@@ -108,7 +108,7 @@ function All(props) {
             accessToken = localStorage.getItem('accessToken');
             axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
             
-            axios.get("http://100.91.43.32:4000/user/get-recent-songs")
+            axios.get("http://localhost:4000/user/get-recent-songs")
             .then(response=>{
                 setAllRecentSongs(response.data.songs); //assuming the response contains an array of data
                 
@@ -118,12 +118,12 @@ function All(props) {
                 const refreshToken = localStorage.getItem('refreshToken');
                 axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-                axios.get("http://100.91.43.32:4000/token/refresh-token")
+                axios.get("http://localhost:4000/token/refresh-token")
                 .then(response => {       
                     localStorage.setItem('accessToken', response.data.accessToken);
                     axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
                     
-                    axios.get("http://100.91.43.32:4000/user/get-recent-songs")
+                    axios.get("http://localhost:4000/user/get-recent-songs")
                     .then(response=>{
                         setAllRecentSongs(response.data.songs); //assuming the response contains an array of data
                         

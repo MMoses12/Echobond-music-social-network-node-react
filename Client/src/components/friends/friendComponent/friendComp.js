@@ -19,7 +19,7 @@ function FriendsComp(props){
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
 
         // IP with tailscale.
-        axios.delete("http://100.91.43.32:4000/user/remove-friend?friend=" + friend)
+        axios.delete("http://localhost:4000/user/remove-friend?friend=" + friend)
         .then(response => {
             props.setFriendsChange(!props.friendChange)
         })
@@ -28,12 +28,12 @@ function FriendsComp(props){
             axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
             // Retry the request.
-            axios.get("http://100.91.43.32:4000/token/refresh-token")
+            axios.get("http://localhost:4000/token/refresh-token")
             .then(response => {
                 localStorage.setItem('accessToken', response.data.accessToken)
                 axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
 
-                axios.delete("http://100.91.43.32:4000/user/remove-friend?friend=" + friend)
+                axios.delete("http://localhost:4000/user/remove-friend?friend=" + friend)
                 .then(response => {
                     props.setFriendsChange(!props.friendChange)
                 })

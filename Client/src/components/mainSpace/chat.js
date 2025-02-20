@@ -63,7 +63,7 @@ function Chat (props) {
             const refreshToken = localStorage.getItem('refreshToken');
             axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-            axios.get("http://100.91.43.32:4000/token/refresh-token")
+            axios.get("http://localhost:4000/token/refresh-token")
             .then(response => {
                 localStorage.setItem("accessToken", response.data.accessToken)
                 const decodedToken = jwtDecode(response.data.accessToken)
@@ -93,7 +93,7 @@ function Chat (props) {
         const accessToken = localStorage.getItem('accessToken');
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
 
-        axios.post('http://100.91.43.32:4000/chat/get-conversation-id', { friend: props.friendsName })
+        axios.post('http://localhost:4000/chat/get-conversation-id', { friend: props.friendsName })
             .then((response) => {
                 setMessages([])
                 openSockets(response.data.conversationID)
@@ -103,12 +103,12 @@ function Chat (props) {
                 const refreshToken = localStorage.getItem('refreshToken');
                 axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-                axios.get("http://100.91.43.32:4000/token/refresh-token")
+                axios.get("http://localhost:4000/token/refresh-token")
                 .then(response => {
                     localStorage.setItem("accessToken", response.data.accessToken)   
                     axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
 
-                    axios.post('http://100.91.43.32:4000/chat/get-conversation-id', { friend: props.friendsName })
+                    axios.post('http://localhost:4000/chat/get-conversation-id', { friend: props.friendsName })
                     .then(response => {
                         setMessages([])
                         openSockets(response.data.conversationID)

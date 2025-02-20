@@ -39,7 +39,7 @@ function HomePage () {
         const accessToken = localStorage.getItem("accessToken")
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
 
-        axios.get("http://100.91.43.32:4000/token/check-token")
+        axios.get("http://localhost:4000/token/check-token")
         .then(response => {
             navigate("/musicHome", { replace: true })
         })
@@ -47,7 +47,7 @@ function HomePage () {
             const refreshToken = localStorage.getItem("refreshToken")
             axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-            axios.get("http://100.91.43.32:4000/token/refresh-token")
+            axios.get("http://localhost:4000/token/refresh-token")
             .then(response => {
                 localStorage.setItem('accessToken', response.data.accessToken)
 

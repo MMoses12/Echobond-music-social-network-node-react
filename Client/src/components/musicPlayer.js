@@ -40,7 +40,7 @@ function MusicPlayer (songInfo) {
             const refreshToken = localStorage.getItem('refreshToken');
             axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-            axios.get("http://100.91.43.32:4000/token/refresh-token")
+            axios.get("http://localhost:4000/token/refresh-token")
             .then(response => {
                 localStorage.setItem("accessToken", response.data.accessToken)
                 const decodedToken = jwtDecode(response.data.accessToken)

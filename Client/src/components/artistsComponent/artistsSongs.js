@@ -29,7 +29,7 @@ function ArtistsSongs (props){
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
 
         // Fetch albums data when the component mounts
-        axios.get("http://100.91.43.32:4000/artists/get-artists-songs?name=" + props.name)
+        axios.get("http://localhost:4000/artists/get-artists-songs?name=" + props.name)
         .then(response => {
             setSong(response.data.songs); // Assuming the response contains an array of albums
             setArtitsAlbum(response.data.albums)// Assuming the response contains
@@ -40,12 +40,12 @@ function ArtistsSongs (props){
             const refreshToken = localStorage.getItem('refreshToken');
             axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-            axios.get("http://100.91.43.32:4000/token/refresh-token")
+            axios.get("http://localhost:4000/token/refresh-token")
             .then(response => {       
                 localStorage.setItem('accessToken', response.data.accessToken);
                 axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
 
-                axios.get("http://100.91.43.32:4000/albums/get-album-songs?name=" + props.name)
+                axios.get("http://localhost:4000/albums/get-album-songs?name=" + props.name)
                 .then(response => {
                     setTracks(response.data.albums); // Assuming the response contains an array of albums
                     setIsFavorite(response.data.isFavorite); // Assuming the response contains
@@ -74,7 +74,7 @@ function ArtistsSongs (props){
     const setFavoriteArtist = ()=>{
         if(!isFavorite) {
 			setIsFavorite(true);
-            axios.put("http://100.91.43.32:4000/user/add-favourite-artist", { name: props.name })
+            axios.put("http://localhost:4000/user/add-favourite-artist", { name: props.name })
             .then(response => {
                 console.log("Success:", response.data);
             })
@@ -82,13 +82,13 @@ function ArtistsSongs (props){
                 const refreshToken = localStorage.getItem('refreshToken');
                 axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-                axios.get("http://100.91.43.32:4000/token/refresh-token")
+                axios.get("http://localhost:4000/token/refresh-token")
                 .then(response => {       
                     localStorage.setItem('accessToken', response.data.accessToken);
                     axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
 
                     setIsFavorite(true);
-                    axios.put("http://100.91.43.32:4000/user/add-favourite-artist", { name: props.name })
+                    axios.put("http://localhost:4000/user/add-favourite-artist", { name: props.name })
                         .then(response => {
                             console.log("Success:", response.data);
                         })  
@@ -101,7 +101,7 @@ function ArtistsSongs (props){
         }
         else{
 			setIsFavorite(false);
-            axios.delete("http://100.91.43.32:4000/user/remove-favourite-artist?name=" + props.name)
+            axios.delete("http://localhost:4000/user/remove-favourite-artist?name=" + props.name)
             .then(response => {
                 console.log("Success:", response.data);
             })
@@ -109,7 +109,7 @@ function ArtistsSongs (props){
                 const refreshToken = localStorage.getItem('refreshToken');
                 axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-                axios.get("http://100.91.43.32:4000/token/refresh-token")
+                axios.get("http://localhost:4000/token/refresh-token")
                 .then(response => {       
                     localStorage.setItem('accessToken', response.data.accessToken);
                     axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`

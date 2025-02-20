@@ -27,7 +27,7 @@ function AlbumSongs (props) {
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
 
         // Fetch albums data when the component mounts
-        axios.get("http://100.91.43.32:4000/albums/get-album-songs?name=" + props.name)
+        axios.get("http://localhost:4000/albums/get-album-songs?name=" + props.name)
         .then(response => {
             setTracks(response.data.albums); // Assuming the response contains an array of albums
             setIsFavorite(response.data.isFavorite); // Assuming the response contains
@@ -37,12 +37,12 @@ function AlbumSongs (props) {
             const refreshToken = localStorage.getItem('refreshToken');
             axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-            axios.get("http://100.91.43.32:4000/token/refresh-token")
+            axios.get("http://localhost:4000/token/refresh-token")
             .then(response => {       
                 localStorage.setItem('accessToken', response.data.accessToken);
                 axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
 
-                axios.get("http://100.91.43.32:4000/albums/get-album-songs?name=" + props.name)
+                axios.get("http://localhost:4000/albums/get-album-songs?name=" + props.name)
                 .then(response => {
                     setTracks(response.data.albums); // Assuming the response contains an array of albums
                     setIsFavorite(response.data.isFavorite); // Assuming the response contains
@@ -80,7 +80,7 @@ function AlbumSongs (props) {
             const accessToken = localStorage.getItem('accessToken');
             axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
 
-            axios.put("http://100.91.43.32:4000/user/add-favourite-album", { name: props.name })
+            axios.put("http://localhost:4000/user/add-favourite-album", { name: props.name })
             .then(response => {
                 console.log("Success:", response.data);
                 
@@ -89,12 +89,12 @@ function AlbumSongs (props) {
                 const refreshToken = localStorage.getItem('refreshToken');
                 axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-                axios.get("http://100.91.43.32:4000/token/refresh-token")
+                axios.get("http://localhost:4000/token/refresh-token")
                 .then(response => {
                     localStorage.setItem('accessToken', response.data.accessToken)
                     axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
 
-                    axios.put("http://100.91.43.32:4000/user/add-favourite-album", { name: props.name })
+                    axios.put("http://localhost:4000/user/add-favourite-album", { name: props.name })
                     .then(response => {
                         console.log("Success:", response.data);
                         
@@ -112,7 +112,7 @@ function AlbumSongs (props) {
             const accessToken = localStorage.getItem('accessToken');
             axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
 
-            axios.delete("http://100.91.43.32:4000/user/remove-favourite-album?name=" + props.name)
+            axios.delete("http://localhost:4000/user/remove-favourite-album?name=" + props.name)
             .then(response => {
                 console.log("Success:", response.data);
                 
@@ -121,12 +121,12 @@ function AlbumSongs (props) {
                 const refreshToken = localStorage.getItem('refreshToken');
                 axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-                axios.get("http://100.91.43.32:4000/token/refresh-token")
+                axios.get("http://localhost:4000/token/refresh-token")
                 .then(response => {
                     localStorage.setItem('accessToken', response.data.accessToken)
                     axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
 
-                    axios.delete("http://100.91.43.32:4000/user/remove-favourite-album?name=" + props.name)
+                    axios.delete("http://localhost:4000/user/remove-favourite-album?name=" + props.name)
                     .then(response => {
                         console.log("Success:", response.data);
                         

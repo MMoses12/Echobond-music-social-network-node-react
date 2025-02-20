@@ -45,7 +45,7 @@ function UserDropdownMenu () {
         const accessToken = localStorage.getItem('accessToken');
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
 
-        axios.get("http://100.91.43.32:4000/user/get-user-info")
+        axios.get("http://localhost:4000/user/get-user-info")
         .then(response => {
             setUserPhoto(response.data.userInfo.Photo)
         })
@@ -53,12 +53,12 @@ function UserDropdownMenu () {
             const refreshToken = localStorage.getItem('refreshToken');
             axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
             
-            axios.get("http://100.91.43.32:4000/token/refresh-token")
+            axios.get("http://localhost:4000/token/refresh-token")
             .then(response => {
                 localStorage.setItem('accessToken', response.data.accessToken)
                 axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
 
-                axios.get("http://100.91.43.32:4000/user/get-user-info")
+                axios.get("http://localhost:4000/user/get-user-info")
                 .then(response => {
                     setUserPhoto(response.data.Photo)
                 })

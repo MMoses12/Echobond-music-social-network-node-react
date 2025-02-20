@@ -19,7 +19,7 @@ function SearchHandler (props) {
 
     // Search songs, artists and albums request.
     useEffect(() =>{
-        axios.get('http://100.91.43.32:4000/search/get-search?value='+props.value)
+        axios.get('http://localhost:4000/search/get-search?value='+props.value)
         .then(response=>{
             setTracks(response.data.songs)
             setArtists(response.data.artists)
@@ -29,13 +29,13 @@ function SearchHandler (props) {
             const refreshToken = localStorage.getItem('refreshToken');
             axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-            axios.get("http://100.91.43.32:4000/token/refresh-token")
+            axios.get("http://localhost:4000/token/refresh-token")
             .then(response => {       
                 localStorage.setItem('accessToken', response.data.accessToken);
                 axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
                 
 
-                axios.get('http://100.91.43.32:4000/search/get-search?value='+props.value)
+                axios.get('http://localhost:4000/search/get-search?value='+props.value)
                 .then(response=>{
                     setTracks(response.data.songs)
                     setArtists(response.data.artists)
@@ -56,34 +56,34 @@ function SearchHandler (props) {
         props.setChangeTo("ArtistsSongs");
 
 
-        axios.put("http://100.91.43.32:4000/search/search-items",{name : artist.name , type:"artist"})
+        axios.put("http://localhost:4000/search/search-items",{name : artist.name , type:"artist"})
         .catch(error => {
             const refreshToken = localStorage.getItem('refreshToken');
             axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-            axios.get("http://100.91.43.32:4000/token/refresh-token")
+            axios.get("http://localhost:4000/token/refresh-token")
             .then(response => {       
                 localStorage.setItem('accessToken', response.data.accessToken);
                 axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
                 
-                axios.put("http://100.91.43.32:4000/search/search-items",{name : artist.name , type:"artist"})
+                axios.put("http://localhost:4000/search/search-items",{name : artist.name , type:"artist"})
             })
         })
     }
 
     //handle the click of the Song
     const handleSongClick = (song) => {
-        axios.put("http://100.91.43.32:4000/search/search-items",{name:song.title , type:"song"})
+        axios.put("http://localhost:4000/search/search-items",{name:song.title , type:"song"})
         .catch(error => {
             const refreshToken = localStorage.getItem('refreshToken');
             axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-            axios.get("http://100.91.43.32:4000/token/refresh-token")
+            axios.get("http://localhost:4000/token/refresh-token")
             .then(response => {       
                 localStorage.setItem('accessToken', response.data.accessToken);
                 axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
                 
-                axios.put("http://100.91.43.32:4000/search/search-items",{name:song.title , type:"song"})
+                axios.put("http://localhost:4000/search/search-items",{name:song.title , type:"song"})
             })
         })
     }
@@ -95,18 +95,18 @@ function SearchHandler (props) {
             props.setMainSpace("mainSpace")
             props.setChangeTo("AlbumSongs");
     
-            axios.put("http://100.91.43.32:4000/search/search-items",{name : album.name , type:"album"})
+            axios.put("http://localhost:4000/search/search-items",{name : album.name , type:"album"})
             .catch(error => {
                 const refreshToken = localStorage.getItem('refreshToken');
                 axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-                axios.get("http://100.91.43.32:4000/token/refresh-token")
+                axios.get("http://localhost:4000/token/refresh-token")
                 .then(response => {       
                     localStorage.setItem('accessToken', response.data.accessToken);
                     axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
                     
 
-                    axios.put("http://100.91.43.32:4000/search/search-items",{name : album.name , type:"album"})
+                    axios.put("http://localhost:4000/search/search-items",{name : album.name , type:"album"})
                 })
             })
         }

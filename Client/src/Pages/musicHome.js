@@ -63,7 +63,7 @@ const MusicHome = () => {
     // Start socket connections.
     useEffect(() => {
         // IP with tailscale.
-        const socketInstance = io("http://100.91.43.32:4001");
+        const socketInstance = io("http://localhost:4001");
 
         socketInstance.on("connect", () => {
             console.log("Connected to server!");

@@ -52,7 +52,7 @@ const OtpPage = () => {
         }
 
         // IP with tailscale.
-        axios.put("http://100.91.43.32:4000/user/register", { username, password, email, insertedOTP: enteredOtp })
+        axios.put("http://localhost:4000/user/register", { username, password, email, insertedOTP: enteredOtp })
         .then(response => {
             navigate("/login", { replace: true })
         })
@@ -64,7 +64,7 @@ const OtpPage = () => {
     // Send credentials to the server.
     const resendOTP = (event) => {
         // IP with tailscale.
-        axios.post("http://100.91.43.32:4000/otp/send-otp", { username, email, register: true })
+        axios.post("http://localhost:4000/otp/send-otp", { username, email, register: true })
             .then(response => {
                 notify("OTP resent successfully!")
             })

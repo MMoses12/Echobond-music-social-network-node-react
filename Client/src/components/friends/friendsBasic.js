@@ -23,7 +23,7 @@ function FriendsBasic (props) {
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
 
         // IP with tailscale.
-        axios.get("http://100.91.43.32:4000/user/get-friends")
+        axios.get("http://localhost:4000/user/get-friends")
         .then(response => {
             setFriends(response.data.friends)
         })
@@ -32,12 +32,12 @@ function FriendsBasic (props) {
             axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
             // Retry the request.
-            axios.get("http://100.91.43.32:4000/token/refresh-token")
+            axios.get("http://localhost:4000/token/refresh-token")
             .then(response => {
                 localStorage.setItem('accessToken', response.data.accessToken)
                 axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
 
-                axios.get("http://100.91.43.32:4000/user/get-friends")
+                axios.get("http://localhost:4000/user/get-friends")
                 .then(response => {
                     setFriends(response.data.friends)
                 })

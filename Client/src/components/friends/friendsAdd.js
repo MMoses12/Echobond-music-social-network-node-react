@@ -28,7 +28,7 @@ function FriendsAdd (props) {
         const token = localStorage.getItem("accessToken")
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
-        axios.get("http://100.91.43.32:4000/user/get-friend-requests")
+        axios.get("http://localhost:4000/user/get-friend-requests")
         .then(response => {
             setFriendRequests(response.data.requests)
         })
@@ -36,14 +36,14 @@ function FriendsAdd (props) {
             const refreshToken = localStorage.getItem("refreshToken")
             axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-            axios.get("http://100.91.43.32:4000/token/refresh-token")
+            axios.get("http://localhost:4000/token/refresh-token")
             .then(response => {
                 // Store token and set it as header.
                 localStorage.setItem("accessToken", response.data.accessToken)
                 axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
 
                 // Retry the request.
-                axios.get("http://100.91.43.32:4000/user/get-friend-requests")
+                axios.get("http://localhost:4000/user/get-friend-requests")
                 .then(response => {
                     setFriendRequests(response.data.requests)
                 })
@@ -69,7 +69,7 @@ function FriendsAdd (props) {
         const token = localStorage.getItem("accessToken")
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
-        axios.post("http://100.91.43.32:4000/user/search-friends", { friendUsername: searchUser })
+        axios.post("http://localhost:4000/user/search-friends", { friendUsername: searchUser })
         .then(response => {
             setRecommendations(response.data.searchedFriends)
         })
@@ -77,14 +77,14 @@ function FriendsAdd (props) {
             const refreshToken = localStorage.getItem("refreshToken")
             axios.defaults.headers.common['Authorization'] = `Bearer ${refreshToken}`
 
-            axios.get("http://100.91.43.32:4000/token/refresh-token")
+            axios.get("http://localhost:4000/token/refresh-token")
             .then(response => {
                 // Store token and set it as header.
                 localStorage.setItem("accessToken", response.data.accessToken)
                 axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
 
                 // Retry the request.
-                axios.post("http://100.91.43.32:4000/user/search-friends", { friendUsername: searchUser })
+                axios.post("http://localhost:4000/user/search-friends", { friendUsername: searchUser })
                 .then(response => {
                     setRecommendations(response.data.searchedFriends)
                 })
