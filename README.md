@@ -137,11 +137,12 @@ The backend uses WebSocket to provide real-time updates to users, whether for me
 Here are some screenshots of the Echobond Music App:
 
 ### Home Page
-<p align="center">
-    <img src="ReadmePhotos/HomePage1.png" width="45%" alt="Home Page Screenshot 1">
-    <img src="ReadmePhotos/HomePage2.png" width="45%" alt="Home Page Screenshot 2">
-    <img src="ReadmePhotos/HomePage3.png" width="45%" alt="Home Page Screenshot 2">
-</p>
+![](ReadmePhotos/HomePage1.png)
+
+![](ReadmePhotos/HomePage2.png)
+
+![](ReadmePhotos/HomePage3.png)
+
 
 ### Music Player
 ![Music Player](ReadmePhotos/music-player-screenshot.png)
